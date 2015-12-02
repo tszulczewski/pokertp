@@ -1,0 +1,14 @@
+import java.awt.BorderLayout;
+import javax.swing.JFrame;
+
+public class Window {
+
+	static void windowDefault(JFrame frame) {
+	frame.setTitle("Poker Texas");
+	frame.setSize(800, 600);
+	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	frame.setLayout(new BorderLayout());	
+	frame.setResizable(false);
+	}
+
+}

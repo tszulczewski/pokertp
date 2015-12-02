@@ -1,0 +1,94 @@
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class Game extends JFrame implements ActionListener {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private GameMenu menu;
+	private ImageIcon img;
+	private JLabel background;
+	private JButton bBack;
+	private JButton bPass, bCheck, bRaise, bBet, bCall, bAll;
+	private JPanel panel;
+	//private int x,y = 0;
+	
+	Game(GameMenu gm) {
+		Window.windowDefault(this);
+		menu = gm;
+		if(menu.getResolution() == 2) {
+			setSize(1024,768);
+			Window.x = 224;
+			Window.y = 168;
+		}
+		
+		img = new ImageIcon("images/table10.jpg");
+		background = new JLabel(img);
+		add(background);
+		//background.setLayout(new FlowLayout());
+		background.setLayout(null);
+		
+		bBack = new JButton("Back");
+		Window.buttonDefault(bBack);
+		bBack.addActionListener(this);
+		
+		bPass = new JButton("Fold");
+		Window.buttonDefault(bPass);
+		
+		bCheck = new JButton("Check");
+		Window.buttonDefault(bCheck);
+		bCheck.setEnabled(false);
+		
+		bRaise = new JButton("Raise");
+		Window.buttonDefault(bRaise);
+		
+		bBet = new JButton("Bet");
+		Window.buttonDefault(bBet);
+		
+		bCall = new JButton("Call");
+		Window.buttonDefault(bCall);
+		
+		bAll = new JButton("All");
+		Window.buttonDefault(bAll);
+
+		
+
+		panel = new JPanel();
+		panel.setBounds(500 + Window.x  , 500 + Window.y, 300, 200);
+		panel.setOpaque(false);
+		background.add(panel);
+		
+		panel.add(bPass);
+		panel.add(bBet);
+		panel.add(bRaise);
+		panel.add(bCheck);
+		panel.add(bCall);
+		panel.add(bAll);
+		panel.add(bBack);
+		
+		
+		
+		
+	
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		Object source = e.getSource();
+		
+		if(source == bBack) {
+			
+			//GameMenu gmenu = new GameMenu(menu.getResolution());
+			//gmenu.setVisible(true);
+			menu.setVisible(true);
+			dispose();
+			}
+	
+	}
+}

@@ -1,0 +1,24 @@
+
+public class HostingSettings {
+	private static HostingSettings instance = null;
+	
+	private String numberOfPlayer;
+	private String numberOfBots;
+	
+	protected HostingSettings() {
+	}
+
+	public static HostingSettings getInstance() {
+		if(instance == null)
+			instance = new HostingSettings();
+		return instance;
+	}
+	public void setNumberOfPlayer(String nop) {
+		numberOfPlayer = nop;
+	}
+	public void setNumberOfBots(Object nob) {
+		numberOfBots = nob.toString();
+		System.out.println(numberOfBots);
+	}
+	
+}

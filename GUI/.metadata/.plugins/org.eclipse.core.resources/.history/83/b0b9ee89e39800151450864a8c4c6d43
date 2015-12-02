@@ -1,0 +1,13 @@
+
+public class HostingSettings {
+	private static HostingSettings instance = null;
+	protected HostingSettings() {
+	//
+	}
+
+	public static HostingSettings getInstance() {
+		if(instance == null)
+			instance = new HostingSettings();
+		return instance;
+	}
+}

@@ -1,0 +1,16 @@
+
+public abstract class HostingSettings {
+	
+	
+	private String numberOfPlayer;
+	private String numberOfBots;
+	
+	public void setNumberOfPlayer(Object nop) {
+		numberOfPlayer = nop.toString();
+	}
+	public void setNumberOfBots(Object nob) {
+		numberOfBots = nob.toString();
+		System.out.println(numberOfBots);
+	}
+	
+}

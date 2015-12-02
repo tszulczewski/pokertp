@@ -123,11 +123,6 @@ public class GameSettings extends JFrame implements ActionListener {
 				bMoneyEdit.setText("Change");
 			}
 		}
-		if(source == bCreateGame) {
-			HostingSettings.setNumberOfPlayer(cNofPlayers.getSelectedItem());
-			HostingSettings.setNumberOfBots(cNofBots.getSelectedItem());
-			HostingSettings.setMoney(tMoney.getText());
-		}
 
 	}
 

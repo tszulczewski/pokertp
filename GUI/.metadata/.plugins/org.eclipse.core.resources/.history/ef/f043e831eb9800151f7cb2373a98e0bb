@@ -48,7 +48,7 @@ public class GameMenu extends JFrame implements ActionListener {
 		}
 		
 		// #Background //
-		img =  new ImageIcon("resources/bg1024.jpg");
+		img =  new ImageIcon("src/bg1024.jpg");
 		background = new JLabel(img);
 		add(background);
 		background.setLayout(new FlowLayout());

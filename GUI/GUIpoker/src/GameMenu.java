@@ -2,6 +2,8 @@
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -42,7 +44,8 @@ public class GameMenu extends JFrame implements ActionListener {
 		}
 		
 		// #Background //
-		img =  new ImageIcon("images/bg1024.jpg");
+		java.net.URL url = GameMenu.class.getResource("/resources/bg1024.jpg");
+		img =  new ImageIcon(url);
 		background = new JLabel(img);
 		add(background);
 		background.setLayout(new FlowLayout());

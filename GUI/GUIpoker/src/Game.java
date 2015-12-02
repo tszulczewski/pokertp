@@ -28,7 +28,8 @@ public class Game extends JFrame implements ActionListener {
 		menu = gm;
 		Window.checkResolution(gm, this);
 		
-		img = new ImageIcon("images/tableB.jpg");
+		java.net.URL url = GameMenu.class.getResource("/resources/tableB.jpg");
+		img =  new ImageIcon(url);
 		background = new JLabel(img);
 		add(background);
 		background.setLayout(null);

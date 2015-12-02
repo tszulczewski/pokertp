@@ -6,6 +6,8 @@ public abstract class HostingSettings {
 	private static String money = "4000";
 	private static String potLimit = "0";
 	private static String raiseStyle;
+	private static String raiseLimit, raiseValue;
+	
 
 	
 	public static void setNumberOfPlayer(Object nop) {
@@ -28,5 +30,14 @@ public abstract class HostingSettings {
 		raiseStyle = item.toString();	
 		System.out.println("Style: " + raiseStyle);
 	}
+	public static void setRaiseLimit(String limit) {
+		raiseLimit = limit;	
+		System.out.println("Raise limit: " + raiseLimit);
+	}
+	public static void setRaiseValue(String value) {
+		raiseValue = value;	
+		System.out.println("Raise Value: " + raiseValue);
+	}
+	
 	
 }

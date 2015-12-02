@@ -41,7 +41,8 @@ public class GameSettings extends JFrame implements ActionListener {
 		Window.checkResolution(gm, this);
 
 		// #Background
-		img =  new ImageIcon("images/bg1024.jpg");
+		java.net.URL url = GameMenu.class.getResource("/resources/bg1024.jpg");
+		img =  new ImageIcon(url);
 		background = new JLabel(img);
 		add(background);
 		background.setLayout(null);
@@ -81,8 +82,7 @@ public class GameSettings extends JFrame implements ActionListener {
 		cNofBots.setBounds(220,65,110,20);
 		cNofBots.addActionListener(this);
 		background.add(cNofBots);
-		
-		
+
 		lMoney = new JLabel("How much money on start: ");
 		Window.labelSettings(lMoney, 60);
 		background.add(lMoney);
@@ -150,9 +150,7 @@ public class GameSettings extends JFrame implements ActionListener {
 		bGroup = new ButtonGroup();
 		bGroup.add(rRaiseBet);
 		bGroup.add(rRaiseBet2);
-		
-		
-		
+	
 	}
 	@Override
 	public void actionPerformed(ActionEvent a) {
@@ -184,6 +182,10 @@ public class GameSettings extends JFrame implements ActionListener {
 			HostingSettings.setNumberOfBots(cNofBots.getSelectedItem());
 			HostingSettings.setMoney(tMoney.getText());
 			HostingSettings.setStyle(cRaiseStyle.getSelectedItem());
+			if(cRaiseStyle.getSelectedIndex() == 2) {
+				HostingSettings.setRaiseLimit(tRaiseLimit.getText());
+				HostingSettings.setRaiseValue(tRaiseValue.getText());
+			}
 		}
 		if(source == cRaiseStyle) {
 			if(cRaiseStyle.getSelectedIndex() == 2) {
@@ -212,6 +214,7 @@ public class GameSettings extends JFrame implements ActionListener {
 		}
 		else
 			tRaiseValue.setEditable(false);
+			tRaiseValue.setText(null);
 
 	}
 

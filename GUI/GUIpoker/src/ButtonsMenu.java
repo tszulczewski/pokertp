@@ -44,7 +44,8 @@ public class  ButtonsMenu implements ActionListener{
 		Window.buttonDefault(bExit);
 		bExit.addActionListener(this);
 		
-		lTitle = new JLabel(new ImageIcon("images/title.jpg"), SwingConstants.CENTER);
+		java.net.URL url = GameMenu.class.getResource("/resources/title.jpg");
+		lTitle = new JLabel(new ImageIcon(url), SwingConstants.CENTER);
 		lTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
 		lTitle.setLayout(new FlowLayout());
 		container.add(lTitle);

@@ -4,12 +4,15 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 /**
  * 
@@ -29,6 +32,8 @@ public class GameSettings extends JFrame implements ActionListener {
 	JPanel panel;
 	JComboBox<Object> cNofPlayers,cNofBots,cRaiseStyle;
 	JTextField tMoney,tPotLimit, tRaiseLimit, tRaiseValue;
+	JRadioButton rRaiseBet, rRaiseBet2;
+	ButtonGroup bGroup;
 	
 	GameSettings(GameMenu gm) {
 		Window.windowDefault(this);
@@ -98,26 +103,54 @@ public class GameSettings extends JFrame implements ActionListener {
 		Window.labelSettings(lRaiseStyle, 90);
 		background.add(lRaiseStyle);
 		
-		cRaiseStyle = new JComboBox<Object>(HostingSettings.getRaiseStyle());
+		cRaiseStyle = new JComboBox<Object>();
+		cRaiseStyle.addItem("no-limit");
+		cRaiseStyle.addItem("pot-limit");
+		cRaiseStyle.addItem("fixed-limit");
 		cRaiseStyle.setBounds(220, 125, 110, 20);
 		cRaiseStyle.addActionListener(this);
 		background.add(cRaiseStyle);
 		
 		lRaiseLimit = new JLabel("Raise limit: ");
 		Window.labelSettings(lRaiseLimit, 0);
-		lRaiseLimit.setBounds(10, 150, 120, 20);
+		lRaiseLimit.setBounds(30, 150, 120, 20);
 		lRaiseLimit.setFont(new Font("SansSerif", Font.BOLD, 13));
+		lRaiseLimit.setForeground(Color.DARK_GRAY);
 		background.add(lRaiseLimit);
 		
 		tRaiseLimit = new JTextField();
-		tRaiseLimit.setBounds(30, 170, 35, 20);
+		tRaiseLimit.setBounds(110, 150, 50, 20);
 		tRaiseLimit.setEditable(false);
 		background.add(tRaiseLimit);
 		
 		tRaiseValue = new JTextField();
-		tRaiseValue.setBounds(120, 170, 70, 20);
+		tRaiseValue.setBounds(30, 180, 35, 20);
 		tRaiseValue.setEditable(false);
 		background.add(tRaiseValue);
+		
+		
+		rRaiseBet = new JRadioButton();
+		rRaiseBet.setBounds(80, 180, 130, 20);
+		rRaiseBet.setOpaque(false);
+		rRaiseBet.addActionListener(this);
+		rRaiseBet.setText("Own raise value");
+		rRaiseBet.setForeground(Color.DARK_GRAY);
+		rRaiseBet.setEnabled(false);
+		background.add(rRaiseBet);
+		
+		rRaiseBet2 = new JRadioButton();
+		rRaiseBet2.setBounds(200, 180, 100, 20);
+		rRaiseBet2.setOpaque(false);
+		rRaiseBet2.setText("Default");
+		rRaiseBet2.setEnabled(false);
+		rRaiseBet2.setForeground(Color.DARK_GRAY);
+		rRaiseBet2.addActionListener(this);
+		background.add(rRaiseBet2);
+		
+		bGroup = new ButtonGroup();
+		bGroup.add(rRaiseBet);
+		bGroup.add(rRaiseBet2);
+		
 		
 		
 	}
@@ -150,13 +183,38 @@ public class GameSettings extends JFrame implements ActionListener {
 			HostingSettings.setNumberOfPlayer(cNofPlayers.getSelectedItem());
 			HostingSettings.setNumberOfBots(cNofBots.getSelectedItem());
 			HostingSettings.setMoney(tMoney.getText());
+			HostingSettings.setStyle(cRaiseStyle.getSelectedItem());
+			if(cRaiseStyle.getSelectedIndex() == 2) {
+				
+			}
 		}
 		if(source == cRaiseStyle) {
 			if(cRaiseStyle.getSelectedIndex() == 2) {
 				tRaiseLimit.setEditable(true);
 				tRaiseLimit.setText("10");
+				lRaiseLimit.setForeground(Color.white);
+				rRaiseBet2.setEnabled(true);
+				rRaiseBet.setEnabled(true);
+				rRaiseBet.setForeground(Color.white);
+				rRaiseBet2.setForeground(Color.white);
+				rRaiseBet2.setSelected(true);
+			}
+			else {
+				tRaiseLimit.setEditable(false);
+				tRaiseLimit.setText("");
+				tRaiseValue.setText("");
+				lRaiseLimit.setForeground(Color.DARK_GRAY);
+				rRaiseBet.setForeground(Color.DARK_GRAY);
+				rRaiseBet2.setForeground(Color.DARK_GRAY);
+				rRaiseBet2.setEnabled(false);
+				rRaiseBet.setEnabled(false);
 			}
 		}
+		if(source == rRaiseBet) {
+			tRaiseValue.setEditable(true);
+		}
+		else
+			tRaiseValue.setEditable(false);
 
 	}
 

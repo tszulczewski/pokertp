@@ -34,12 +34,6 @@ public class GameMenu extends JFrame implements ActionListener {
 	//boolean first = true;
 	
 		GameMenu(int res) {
-		/*// #Frame settings // 
-		setTitle("Poker Texas");
-		setSize(800, 600);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setLayout(new BorderLayout());	
-		setResizable(false);*/
 		
 		Window.windowDefault(this);
 		resolution = 1;
@@ -48,7 +42,7 @@ public class GameMenu extends JFrame implements ActionListener {
 		}
 		
 		// #Background //
-		img =  new ImageIcon("resources/bg1024.jpg");
+		img =  new ImageIcon("images/bg1024.jpg");
 		background = new JLabel(img);
 		add(background);
 		background.setLayout(new FlowLayout());

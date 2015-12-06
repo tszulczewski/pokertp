@@ -78,6 +78,7 @@ public class GameSettings extends JFrame implements ActionListener {
 		background.add(lNumberOfBots);
 		
 		cNofBots = new JComboBox<Object>();
+		cNofBots.addItem("0");
 		cNofBots.addItem("1");
 		cNofBots.setBounds(220,65,110,20);
 		cNofBots.addActionListener(this);
@@ -95,6 +96,7 @@ public class GameSettings extends JFrame implements ActionListener {
 		
 		bMoneyEdit = new JButton("Change");
 		Window.buttonDefault(bMoneyEdit);
+		bMoneyEdit.setFont(new Font("SansSerif", Font.BOLD, 12));
 		bMoneyEdit.setBounds(335, 95, 90, 20);
 		bMoneyEdit.addActionListener(this);
 		background.add(bMoneyEdit);
@@ -114,7 +116,7 @@ public class GameSettings extends JFrame implements ActionListener {
 		lRaiseLimit = new JLabel("Raise limit: ");
 		Window.labelSettings(lRaiseLimit, 0);
 		lRaiseLimit.setBounds(30, 150, 120, 20);
-		lRaiseLimit.setFont(new Font("SansSerif", Font.BOLD, 13));
+		lRaiseLimit.setFont(new Font("SansSerif", Font.BOLD, 12));
 		lRaiseLimit.setForeground(Color.DARK_GRAY);
 		background.add(lRaiseLimit);
 		
@@ -134,6 +136,7 @@ public class GameSettings extends JFrame implements ActionListener {
 		rRaiseBet.setOpaque(false);
 		rRaiseBet.addActionListener(this);
 		rRaiseBet.setText("Own raise value");
+		rRaiseBet.setFont(new Font("SansSerif", Font.BOLD, 12));
 		rRaiseBet.setForeground(Color.DARK_GRAY);
 		rRaiseBet.setEnabled(false);
 		background.add(rRaiseBet);
@@ -143,6 +146,7 @@ public class GameSettings extends JFrame implements ActionListener {
 		rRaiseBet2.setOpaque(false);
 		rRaiseBet2.setText("Default");
 		rRaiseBet2.setEnabled(false);
+		rRaiseBet.setFont(new Font("SansSerif", Font.BOLD, 12));
 		rRaiseBet2.setForeground(Color.DARK_GRAY);
 		rRaiseBet2.addActionListener(this);
 		background.add(rRaiseBet2);
@@ -161,10 +165,10 @@ public class GameSettings extends JFrame implements ActionListener {
 			dispose();
 		}
 		if(source == cNofPlayers) {
-			int temp = cNofPlayers.getSelectedIndex() + 1;
+			int temp = cNofPlayers.getSelectedIndex() + 2;
 			cNofBots.removeAllItems();
 			for(int i = 0; i < temp; i++) {
-				cNofBots.addItem(Integer.toString(i+1));
+				cNofBots.addItem(Integer.toString(i));
 			}
 		}
 		if(source == bMoneyEdit) {

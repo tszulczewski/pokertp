@@ -1,0 +1,8 @@
+package cards;
+
+public class PokerCheck {
+	private PokerPlayer player;
+	private PokerCards[] cardsInGame;
+	
+
+}

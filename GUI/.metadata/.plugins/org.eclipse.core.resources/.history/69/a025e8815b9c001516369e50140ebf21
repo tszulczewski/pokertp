@@ -1,0 +1,32 @@
+package cards;
+
+import static org.junit.Assert.*;
+
+import java.util.Random;
+
+import org.junit.Test;
+
+public class PokerDeckTest {
+
+	@Test
+	public void test() {
+		PokerDeck deck = new PokerDeck();
+		for(int i = 1; i < 12;  i++) {
+			assertNotEquals(deck.getCardColor(13), deck.getCardColor(i));
+		}
+		for(int i = 0; i < 52; i++) {
+			System.out.println(ValueOfCards.getCardColor(deck.getCardColor(i)) + " " +
+					ValueOfCards.getCardFigure(deck.getCardFigure(i)) + " order: " + 
+					deck.getCardOrder(i));
+		}
+		Random generator = new Random();
+		int rand = generator.nextInt(52);
+		int x = 0;
+		while(x < 100) {
+			rand = generator.nextInt(52);
+			System.out.println(rand);
+		}
+			
+
+	}
+}

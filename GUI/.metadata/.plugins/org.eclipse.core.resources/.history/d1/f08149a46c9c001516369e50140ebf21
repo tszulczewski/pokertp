@@ -1,0 +1,12 @@
+package cards;
+
+public class PokerGame {
+	private PokerDeck deck;
+	private PokerPlayer[] player;
+	
+	PokerGame(int numberOfPlayers, int numberOfCards) {
+		player = new PokerPlayer[numberOfPlayers];
+		deck = new PokerDeck();
+	}
+
+}

@@ -1,0 +1,27 @@
+package cards;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class PokerDeckTest {
+
+	@Test
+	public void test() {
+		PokerDeck deck = new PokerDeck();
+		for(int i = 1; i < 12;  i++) {
+			assertNotEquals(deck.getCardColor(13), deck.getCardColor(i));
+		}
+		for(int i = 0; i < 52; i++) {
+			ValueOfCards.shuffleDeck(deck);
+			System.out.println(ValueOfCards.getCardColor(deck.getCardColor(i)) + " " +
+					ValueOfCards.getCardFigure(deck.getCardFigure(i)) + " order: " + 
+					deck.getCardOrder(i));
+		}
+		for(int i = 0; i < 52; i++) 
+			for(int k = i; k < 51; k++) {
+				assertNotEquals(deck.getCardOrder(i), deck.getCardOrder(k+1));
+			}
+	}
+
+}

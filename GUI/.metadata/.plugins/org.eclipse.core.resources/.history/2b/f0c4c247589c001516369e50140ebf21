@@ -1,0 +1,34 @@
+package cards;
+
+/**
+ * 
+ * @author 209058 
+ *
+ */
+public class PokerCards {
+	private int cardColor;
+	private int cardFigure;
+	private int cardIndex; 
+	
+	PokerCards(int color, int figure, int index) {
+		this.cardColor = color;
+		this.cardFigure = figure;
+		this.cardIndex = index;
+	}
+
+	public void setCardColor(int newCardColor) {
+		this.cardColor = newCardColor;
+	}
+	public int getCardColor() {
+		return cardColor;
+	}
+	
+	public void setCardFigure(int newCardFigure) {
+		this.cardFigure = newCardFigure;
+	}
+	public int getCardFigure() {
+		return cardFigure;
+	}
+	
+
+}

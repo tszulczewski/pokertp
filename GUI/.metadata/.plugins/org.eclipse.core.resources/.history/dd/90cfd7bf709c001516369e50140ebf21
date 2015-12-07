@@ -1,0 +1,31 @@
+package cards;
+
+public class PokerGame {
+	private PokerDeck deck;
+	private PokerPlayer[] player;
+	private int cardsOut;
+	private int numberOfPlayers;
+	
+	PokerGame(int numberOfPlayers) throws ToManyPlayersException {
+		
+		if(numberOfPlayers > 10)
+			throw new ToManyPlayersException();
+		
+		this.numberOfPlayers = numberOfPlayers;
+		
+		cardsOut = 0;
+		deck = new PokerDeck();
+		deck.shuffleDeck();
+
+		}
+	public void handingOutCards () {
+		
+		for(int i = 0; i < this.numberOfPlayers; i++) {
+			this.player[i] = new PokerPlayer(2);
+			for(int k = 0; k < 2; k++) {
+				this.player[i].setCard(k, this.cardsOut);
+				this.cardsOut++;
+			}
+		}
+	}
+}

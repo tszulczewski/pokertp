@@ -3,26 +3,29 @@
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="322" key="DIALOG_WIDTH"/>
 		<item value="259" key="DIALOG_Y_ORIGIN"/>
-		<item value="720" key="DIALOG_X_ORIGIN"/>
 		<item value="425" key="DIALOG_HEIGHT"/>
+		<item value="720" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="casesensitive"/>
 		<item value="false" key="isRegEx"/>
+		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="rR" key="selection"/>
+		<item value="deck.getCardOrder(i);" key="selection"/>
 		<list key="findhistory">
-			<item value="rR"/>
-			<item value="bMon"/>
-			<item value="b"/>
-			<item value="bCh"/>
-			<item value="cNo"/>
-			<item value="title"/>
+			<item value="deck.getCardOrder(i);"/>
+			<item value="t i = 0; i &lt; 52; i++) {"/>
+			<item value="52"/>
+			<item value="51"/>
+			<item value="16"/>
+			<item value="15"/>
+			<item value="14"/>
+			<item value="13"/>
 		</list>
 		<list key="replacehistory">
+			<item value="dec"/>
 			<item value="r"/>
 		</list>
 	</section>

@@ -5,4 +5,8 @@
 <fullyQualifiedTypeName name="javax.swing.JRadioButton"/>
 <fullyQualifiedTypeName name="javax.swing.ButtonGroup"/>
 <fullyQualifiedTypeName name="javax.print.DocFlavor.URL"/>
+<fullyQualifiedTypeName name="cards.PokerCards"/>
+<fullyQualifiedTypeName name="java.util.Random"/>
+<fullyQualifiedTypeName name="cards.PokerGameTest"/>
+<fullyQualifiedTypeName name="cards.ValueOfCards"/>
 </qualifiedTypeNameHistroy>

@@ -1,0 +1,20 @@
+package cards;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class PokerDeckTest {
+
+	@Test
+	public void test() {
+		PokerDeck deck = new PokerDeck();
+		for(int i = 1; i < 12;  i++) {
+			assertNotEquals(deck.getCard(13).getCardColor(), deck.getCard(i).getCardColor());
+		}
+		for(int i = 0; i < 52; i++) {
+			System.out.println(deck.getCard(i).getCardFigure());
+		}
+	}
+
+}

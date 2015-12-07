@@ -1,0 +1,14 @@
+package cards;
+
+public class PokerPlayer {
+	private int playersCards[];
+	
+	PokerPlayer(int numberOfCards) {
+		playersCards = new int[numberOfCards];
+	}
+	
+	public void setCard(int cardNumber, int newCard) {
+		this.playersCards[cardNumber] = newCard;
+	}
+
+}

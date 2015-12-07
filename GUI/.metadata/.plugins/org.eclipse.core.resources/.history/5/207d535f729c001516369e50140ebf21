@@ -1,0 +1,20 @@
+package cards;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class PokerGameTest {
+
+	@Test
+	public void test() throws ToManyPlayersException {
+		try {
+		PokerGame game = new PokerGame(143);
+		//game.handingOutCards();
+		}catch(ToManyPlayersException e) {
+			System.out.println("Cant create game!");
+		}
+		
+	}
+
+}

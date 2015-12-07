@@ -16,7 +16,7 @@ public class PokerGameTest {
 		}
 		
 	}
-	@Test
+	/*@Test
 	public void showCard() {
 		try {
 			PokerGame game = new PokerGame(4);
@@ -28,6 +28,6 @@ public class PokerGameTest {
 				System.out.println("Cant create game!");
 			}
 		
-	}
+	}*/
 
 }

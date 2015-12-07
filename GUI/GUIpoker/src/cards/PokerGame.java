@@ -24,14 +24,14 @@ public class PokerGame {
 	public int getPlayerCard(int player, int card) {
 		return this.player[player].getCard(card);
 	}
-	public void showCards(int player) {
+	/*public void showCards(int player) {
 		System.out.println( ValueOfCards.getCardColor(deck.getCardColor(this.player[player].getCard(0))) + " " 
 	+ ValueOfCards.getCardFigure(deck.getCardFigure(this.player[player].getCard(0))) );
 
 		System.out.println( ValueOfCards.getCardColor(deck.getCardColor(this.player[player].getCard(1))) + " " 
 				+ ValueOfCards.getCardFigure(deck.getCardFigure(this.player[player].getCard(1))) );
 	}
-	
+	*/
 	
 	public void handingOutCards () {
 		

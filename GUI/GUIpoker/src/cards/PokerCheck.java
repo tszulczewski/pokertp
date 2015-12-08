@@ -6,14 +6,21 @@ public class PokerCheck {
 	private PokerPlayer player;
 	private static PokerCards[] cardsInGame;
 	private int cardsFigures[];
+	private int cardsColors[];
+	private int highestCard;
 	
 	PokerCheck(PokerPlayer playerFromGame ) {
-		
+		this.player = playerFromGame;
 	}
 	
 	public PokerCards[] getCards() {
 		return cardsInGame;
 	}
+	public void highestCard() {
+		System.out.println(highestCard);
+	}
+	
+	
 	public void setCards(PokerCards[] cardsFromGame) {
 		cardsInGame = new PokerCards[5];
 		for(int i = 0; i < 5; i++) 
@@ -29,18 +36,72 @@ public class PokerCheck {
 	
 	public void sortingCards(PokerDeck deck) {
 		this.cardsFigures = new int[7];
-		// Getting players cards figure
+		this.cardsColors = new int[7];
+		// Getting players cards figure and color
 		cardsFigures[0] = deck.getCardFigure(this.player.getCard(0));
+		cardsColors[0] = deck.getCardColor(this.player.getCard(0));
 		cardsFigures[1] = deck.getCardFigure(this.player.getCard(1));
+		cardsColors[1] = deck.getCardColor(this.player.getCard(1));
 		// Getting cards figure from game
 		int k = 0;
 		for(int i = 2; i < 7; i++) {
 			cardsFigures[i] = cardsInGame[k].getCardFigure();
+			cardsColors[i] = cardsInGame[k].getCardColor();
 					k++;
 		}		
-		Arrays.sort(cardsFigures); // sorting cards
-		
+		// Arrays.sort(cardsFigures); // sorting cards
+	        for (int i = 0; i < 7; i++) {
+	            for (int j = 0; j < 7 - 1; j++) {
+	                if (cardsFigures[j] > cardsFigures[j + 1]) {
+	                    int tempF,tempC;
+	                    tempF = cardsFigures[j + 1];
+	                    tempC = cardsColors[j + 1];
+	                    cardsFigures[j + 1] = cardsFigures[j];
+	                    cardsFigures[j] = tempF;
+	                    cardsColors[j + 1] = cardsColors[j];
+	                    cardsColors[j] = tempC;
+	                }
+	            }
+	        }
 	}
+	public void showSorted() {
+		for(int i =0; i < 7; i++) {
+		System.out.println("f: " + this.cardsFigures[i]);
+		System.out.println("c: " + this.cardsColors[i]);
+		}
+	}
+	public void checkHandRanking() {
+	}
+	public boolean isStraightFlush() {
+		int k = 0;
+		int straight = 0;
+		boolean isStraight = false;
+		if(cardsFigures[0] == 9) // for Jack there is no chance to straight Flush
+			return false;
+		
+		while(k < 3){
+			for(int i = k; i < k+4; i++){
+				if(cardsColors[i] == cardsColors[i+1]
+						&& isNextInRow(cardsFigures[i], cardsFigures[i+1]) )
+					straight++;
+				System.out.println(straight);
+			}
+			if(straight == 4) {
+				this.highestCard  = cardsFigures[k+4]; // set highest card 
+				isStraight = true;
+				straight = 0;
+			}
+			else
+				straight = 0;
+			k++;
+		}
+		return isStraight;
+	}
+	
+	public static boolean isNextInRow(int first, int next) {
+		return (next == first+1);
+	}
+
 	
 
 }

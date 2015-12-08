@@ -1,0 +1,35 @@
+package cards;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class PokerCheckTest {
+
+	@Test
+	public void test() {
+		PokerPlayer player = new PokerPlayer(2);
+		PokerDeck deck = new PokerDeck();
+		
+		player.setCard(0, 20);
+		player.setCard(1, 18);
+		
+		PokerCards[] cards = new PokerCards[5];
+		
+		for(int i = 0; i < 5; i++){
+			cards[i] = new PokerCards(0,i+8, i);
+		}
+		PokerCheck check = new PokerCheck(player);
+		check.setCards(cards);
+		
+		check.sortingCards(deck);
+		check.showSorted();
+	
+		
+		if(check.isStraightFlush())
+			System.out.println("Straight Flush");
+		check.highestCard();
+	}
+
+
+}

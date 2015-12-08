@@ -17,7 +17,9 @@ public class PokerDeck {
 			}
 		}
 	}
-	
+	public PokerCards getCard(int index) {
+		return singleCard[index];
+	}
 	public int getCardColor(int index) {
 		return singleCard[index].getCardColor();
 	}

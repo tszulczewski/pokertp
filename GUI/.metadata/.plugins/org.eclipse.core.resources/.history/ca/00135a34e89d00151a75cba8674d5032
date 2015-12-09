@@ -132,7 +132,7 @@ public class GameSettings extends JFrame implements ActionListener {
 		
 		
 		rRaiseBet = new JRadioButton();
-		rRaiseBet.setBounds(80, 180, 160, 20);
+		rRaiseBet.setBounds(80, 170, 180, 20);
 		rRaiseBet.setOpaque(false);
 		rRaiseBet.addActionListener(this);
 		rRaiseBet.setText("Own raise value");
@@ -154,11 +154,7 @@ public class GameSettings extends JFrame implements ActionListener {
 		bGroup = new ButtonGroup();
 		bGroup.add(rRaiseBet);
 		bGroup.add(rRaiseBet2);
-	/*
-	 * 
-	 * TODO 
-	 * Big blind, small blind
-	 */
+	
 	}
 	@Override
 	public void actionPerformed(ActionEvent a) {

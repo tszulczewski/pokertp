@@ -157,7 +157,7 @@ public class GameSettings extends JFrame implements ActionListener {
 	/*
 	 * 
 	 * TODO 
-	 * Big blind, small blind
+	 * Big blind, small blind, max raise
 	 */
 	}
 	@Override

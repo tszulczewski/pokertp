@@ -84,7 +84,7 @@ public class GameSettings extends JFrame implements ActionListener {
 		cNofBots.addActionListener(this);
 		background.add(cNofBots);
 
-		lMoney = new JLabel("How much tokens: ");
+		lMoney = new JLabel("How much money on start: ");
 		Window.labelSettings(lMoney, 60);
 		background.add(lMoney);
 		
@@ -132,7 +132,7 @@ public class GameSettings extends JFrame implements ActionListener {
 		
 		
 		rRaiseBet = new JRadioButton();
-		rRaiseBet.setBounds(80, 180, 160, 20);
+		rRaiseBet.setBounds(80, 180, 130, 20);
 		rRaiseBet.setOpaque(false);
 		rRaiseBet.addActionListener(this);
 		rRaiseBet.setText("Own raise value");
@@ -142,7 +142,7 @@ public class GameSettings extends JFrame implements ActionListener {
 		background.add(rRaiseBet);
 		
 		rRaiseBet2 = new JRadioButton();
-		rRaiseBet2.setBounds(230, 180, 100, 20);
+		rRaiseBet2.setBounds(200, 180, 100, 20);
 		rRaiseBet2.setOpaque(false);
 		rRaiseBet2.setText("Default");
 		rRaiseBet2.setEnabled(false);
@@ -154,11 +154,7 @@ public class GameSettings extends JFrame implements ActionListener {
 		bGroup = new ButtonGroup();
 		bGroup.add(rRaiseBet);
 		bGroup.add(rRaiseBet2);
-	/*
-	 * 
-	 * TODO 
-	 * Big blind, small blind
-	 */
+	
 	}
 	@Override
 	public void actionPerformed(ActionEvent a) {

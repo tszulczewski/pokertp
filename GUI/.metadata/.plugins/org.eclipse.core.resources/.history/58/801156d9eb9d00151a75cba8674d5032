@@ -2,8 +2,6 @@ package cards;
 
 import java.util.Arrays;
 
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
-
 public class PokerCheck {
 	private PokerPlayer player;
 	private static PokerCards[] cardsInGame;
@@ -100,75 +98,6 @@ public class PokerCheck {
 		return isStraight;
 	}
 	
-	public boolean isFourOfaKind() {
-		int four = 0;
-		boolean isFour = false;
-		
-		for(int i = 0; i < 4; i++) {
-			if( four == 3)
-				isFour = true;
-		
-			four = 0;
-			for(int k = 1; k < 7; k++) {
-				if(cardsFigures[i] == cardsFigures[k])
-					four++;
-			}
-		}
-		return isFour;
-	}
-	
-	public boolean isFullHouse() {
-		boolean isThree = false;
-		boolean isTwo = false;
-		int three = 0, 
-				//two = 0, 
-				highThree = -1, howManyThree = 0;
-		
-		for(int i = 0; i < 6; i++) {
-			if(three == 2) {
-				isThree = true;
-				howManyThree++;
-				if(cardsFigures[i] > highThree) {
-					highThree = cardsFigures[i];			
-				}
-				if(howManyThree == 2)
-					isTwo = true;
-			}
-			else if(three == 1)
-				isTwo = true;
-			
-			three = 0;
-			//two = 0;
-			for(int k = 1; k < 7; k++) {
-				if(cardsFigures[i] == cardsFigures[k]) {
-					three++;
-					//two++;
-				}
-			}
-			
-		}
-		return (isThree && isTwo);
-	}
-
-	public boolean isFlush() {
-		int tempColor[] = new int[7];
-		int k = 0;
-		boolean isColor = false;
-		tempColor = cardsColors;
-		Arrays.sort(tempColor);
-		
-		int color = 0;
-		while(k < 3) {
-			for(int i = 1; i < 5; i++) {
-				if(tempColor[k] == tempColor[i])
-					color++;
-			}
-			if(color == 4)
-				isColor = true;
-			k++;
-		}		
-		return isColor;
-	}
 	public static boolean isNextInRow(int first, int next) {
 		return (next == first+1);
 	}

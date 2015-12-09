@@ -167,7 +167,7 @@ public class PokerCheck {
 				isColor = true;
 			k++;
 		}		
-		return isColor;
+		return false;
 	}
 	public static boolean isNextInRow(int first, int next) {
 		return (next == first+1);

@@ -154,11 +154,7 @@ public class GameSettings extends JFrame implements ActionListener {
 		bGroup = new ButtonGroup();
 		bGroup.add(rRaiseBet);
 		bGroup.add(rRaiseBet2);
-	/*
-	 * 
-	 * TODO 
-	 * Big blind, small blind
-	 */
+	
 	}
 	@Override
 	public void actionPerformed(ActionEvent a) {

@@ -1,0 +1,12 @@
+import cards.PokerCards;
+
+public class HandRanking {
+	private int handRanking;
+	private PokerCards[] cards;
+	
+	HandRanking() {
+		cards = new PokerCards[5];
+
+	}
+	
+}

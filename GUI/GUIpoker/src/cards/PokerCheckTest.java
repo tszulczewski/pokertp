@@ -28,7 +28,7 @@ public class PokerCheckTest {
 		
 		if(check.isStraightFlush())
 			System.out.println("Straight Flush");
-		check.highestCard();
+
 	}
 
 

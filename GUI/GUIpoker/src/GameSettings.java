@@ -26,12 +26,13 @@ public class GameSettings extends JFrame implements ActionListener {
 	 */
 	private static final long serialVersionUID = 1L;
 	ImageIcon img;
-	JLabel background, lNumberOfPlayers, lNumberOfBots, lMoney, lRaiseStyle, lRaiseLimit;
+	JLabel background, lNumberOfPlayers, lNumberOfBots, lMoney, lRaiseStyle, lRaiseLimit,
+	lSmall, lBig;
 	JButton bBack, bCreateGame, bMoneyEdit;
 	GameMenu menu;
 	JPanel panel;
 	JComboBox<Object> cNofPlayers,cNofBots,cRaiseStyle;
-	JTextField tMoney,tPotLimit, tRaiseLimit, tRaiseValue;
+	JTextField tMoney,tPotLimit, tRaiseLimit, tRaiseValue, tSmall, tBig;
 	JRadioButton rRaiseBet, rRaiseBet2;
 	ButtonGroup bGroup;
 	
@@ -159,6 +160,30 @@ public class GameSettings extends JFrame implements ActionListener {
 	 * TODO 
 	 * Big blind, small blind
 	 */
+		lSmall = new JLabel("Small blind:");
+		lSmall.setFont(new Font("SansSerif", Font.BOLD, 12));
+		lSmall.setForeground(Color.white);
+		lSmall.setBounds(20,230,100,30);
+		lSmall.setLayout(null);
+		background.add(lSmall);
+		
+		lBig = new JLabel("Big blind:");
+		lBig.setFont(new Font("SansSerif", Font.BOLD, 12));
+		lBig.setForeground(Color.white);
+		lBig.setBounds(20,260,100,30);
+		lBig.setLayout(null);
+		background.add(lBig);
+		
+		tSmall = new JTextField("25");
+		tSmall.setBounds(120,235,35,20);
+		tSmall.setEditable(true);
+		background.add(tSmall);
+		
+		tBig = new JTextField("50");
+		tBig.setBounds(120,265,35,20);
+		tBig.setEditable(true);
+		background.add(tBig);
+		
 	}
 	@Override
 	public void actionPerformed(ActionEvent a) {
@@ -194,6 +219,8 @@ public class GameSettings extends JFrame implements ActionListener {
 				HostingSettings.setRaiseLimit(tRaiseLimit.getText());
 				HostingSettings.setRaiseValue(tRaiseValue.getText());
 			}
+			HostingSettings.setBigB(tBig.getText());
+			HostingSettings.setSmallB(tSmall.getText());
 		}
 		if(source == cRaiseStyle) {
 			if(cRaiseStyle.getSelectedIndex() == 2) {

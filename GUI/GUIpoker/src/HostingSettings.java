@@ -7,6 +7,7 @@ public abstract class HostingSettings {
 	private static String potLimit = "0";
 	private static String raiseStyle;
 	private static String raiseLimit, raiseValue;
+	private static String bigB, smallB;
 	
 
 	
@@ -37,6 +38,14 @@ public abstract class HostingSettings {
 	public static void setRaiseValue(String value) {
 		raiseValue = value;	
 		System.out.println("Raise Value: " + raiseValue);
+	}
+	public static void setBigB(String value) {
+		bigB = value;	
+		System.out.println("BigB : " + bigB);
+	}
+	public static void setSmallB(String value) {
+		smallB = value;	
+		System.out.println("smallB : " + smallB);
 	}
 	
 	

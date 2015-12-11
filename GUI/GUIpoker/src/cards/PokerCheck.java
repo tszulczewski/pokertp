@@ -2,14 +2,14 @@ package cards;
 
 import java.util.Arrays;
 
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
-
 public class PokerCheck {
 	private PokerPlayer player;
 	private static PokerCards[] cardsInGame;
 	private int cardsFigures[];
 	private int cardsColors[];
-	private int highestCard;
+	private int highestCardSlot;
+	private int firstHighestCard;
+	private HandRanking rank;
 	
 	PokerCheck(PokerPlayer playerFromGame ) {
 		this.player = playerFromGame;
@@ -18,11 +18,11 @@ public class PokerCheck {
 	public PokerCards[] getCards() {
 		return cardsInGame;
 	}
-	public void highestCard() {
-		System.out.println(highestCard);
+	
+	public static boolean isNextInRow(int first, int next) {
+		return (next == first+1);
 	}
-	
-	
+		
 	public void setCards(PokerCards[] cardsFromGame) {
 		cardsInGame = new PokerCards[5];
 		for(int i = 0; i < 5; i++) 
@@ -73,6 +73,27 @@ public class PokerCheck {
 		}
 	}
 	public void checkHandRanking() {
+		if(this.isStraightFlush()) {
+			for(int i = 0; i < 5; i++) {
+				rank.setCardFigure(cardsFigures[highestCardSlot-i],
+						i);
+				rank.setCardColor(cardsColors[highestCardSlot-i],
+						i);
+				rank.setHandRanking(8);
+			}
+		}	
+		else if(this.isFourOfaKind()) {
+			for(int i = 0; i < 4; i++) {
+				rank.setCardFigure(cardsFigures[highestCardSlot+i],
+						i);
+				rank.setCardColor(cardsColors[highestCardSlot+i],
+						i);
+				rank.setHandRanking(7);
+			}
+			rank.setCardFigure(cardsFigures[firstHighestCard], 5);
+			rank.setCardColor(cardsFigures[firstHighestCard], 5);
+		}	
+		
 	}
 	public boolean isStraightFlush() {
 		int k = 0;
@@ -89,7 +110,7 @@ public class PokerCheck {
 				System.out.println(straight);
 			}
 			if(straight == 4) {
-				this.highestCard  = cardsFigures[k+4]; // set highest card 
+				this.highestCardSlot  = k+4; // set highest card 
 				isStraight = true;
 				straight = 0;
 			}
@@ -105,9 +126,10 @@ public class PokerCheck {
 		boolean isFour = false;
 		
 		for(int i = 0; i < 4; i++) {
-			if( four == 3)
+			if( four == 3) {
 				isFour = true;
-		
+				highestCardSlot = i-1;
+			}
 			four = 0;
 			for(int k = 1; k < 7; k++) {
 				if(cardsFigures[i] == cardsFigures[k])
@@ -139,7 +161,7 @@ public class PokerCheck {
 			
 			three = 0;
 			//two = 0;
-			for(int k = 1; k < 7; k++) {
+			for(int k = i+1 ; k < i+3; k++) {
 				if(cardsFigures[i] == cardsFigures[k]) {
 					three++;
 					//two++;
@@ -169,10 +191,76 @@ public class PokerCheck {
 		}		
 		return isColor;
 	}
-	public static boolean isNextInRow(int first, int next) {
-		return (next == first+1);
+	
+	public boolean isStraight() {
+		if(cardsFigures[0] == 9) // for Jack there is no chance to straight Flush
+			return false;
+		int k = 0;
+		int straight = 0;
+		boolean isStraight = false;
+				
+		while(k < 3) {
+			for(int i =k; i < k +4; i++) {
+				if(isNextInRow(cardsFigures[i], cardsFigures[i+1]) )
+					straight++;
+				System.out.println(straight);
+				
+				if(straight == 4) {
+					this.highestCardSlot  = k+4; // set highest card 
+					isStraight = true;
+					straight = 0;
+				}
+				else
+					straight = 0;
+				k++;
+			}
+		}
+		return isStraight;
+	}
+	
+	public boolean isThreeOfaKind() {
+		boolean isThree = false;
+		int three = 0;
+		// TODO higher three
+		for(int i = 0; i < 5; i++) {
+			three =0;
+			for(int k = i+1; k < i+3; k++ ) {
+				if(cardsFigures[i] == cardsFigures[k])
+					three++;
+			}
+			if(three == 2)
+				isThree = true;
+		}
+		return isThree;
 	}
 
-	
+	public boolean isTwoPair() {
+		int two = 0;
+		boolean isTwo = false;
+		int higher = -1;
+		for(int i = 0; i < 7; i++)
+			if(cardsFigures[i] == cardsFigures[i+1]) {
+				two++;
+				if(cardsFigures[i] > higher)
+					higher = cardsFigures[i];
+			}
+		if(two >= 2) {
+			isTwo = true;
+			this.firstHighestCard = higher;
+		}
+		return isTwo;
+	}
 
+	public boolean isOnePair() {
+		boolean isOne = false;
+		for(int i = 0; i < 7; i++) {
+			if(cardsFigures[i] == cardsFigures[i+1])
+				isOne = true;
+		}
+		return isOne;
+	}
+	
+	public void setHighCard() {
+		this.firstHighestCard = cardsFigures[6];
+	}
 }

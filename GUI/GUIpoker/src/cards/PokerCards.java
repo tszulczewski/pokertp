@@ -15,6 +15,10 @@ public class PokerCards {
 		this.cardFigure = figure;
 		this.cardOrder = order;
 	}
+	PokerCards(int color, int figure) {
+		this.cardColor = color;
+		this.cardFigure = figure;
+	}
 
 	public void setCardColor(int newCardColor) {
 		this.cardColor = newCardColor;
